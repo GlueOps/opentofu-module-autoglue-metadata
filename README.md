@@ -1,0 +1,1 @@
+# opentofu-module-autoglue-metadata
