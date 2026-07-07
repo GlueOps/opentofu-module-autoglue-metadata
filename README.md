@@ -1,10 +1,8 @@
 # opentofu-module-autoglue-metadata
 <!-- BEGIN_TF_DOCS -->
-
-
 ```hcl
 module "cluster_metadata" {
-  source     = "git::https://github.com/GlueOps/opentofu-module-autoglue-metadata.git?ref=v0.0.1" # x-release-please-version
+  source     = "git::https://github.com/GlueOps/opentofu-module-autoglue-metadata.git?ref=v0.0.2" # x-release-please-version
   cluster_id = autoglue_cluster.cluster.id
 
   cluster_metadata = {
@@ -46,9 +44,9 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_cluster_id"></a> [cluster\_id](#input\_cluster\_id) | The ID of the autoglue cluster | `string` | n/a | yes |
-| <a name="input_cluster_metadata"></a> [cluster\_metadata](#input\_cluster\_metadata) | Structured cluster metadata: network CIDRs, the target cloud provider, and any cloud-specific overrides. | <pre>object({<br/>    calico_network_calico_cidr = string<br/>    network_service_cidr       = string<br/>    cloud                      = string<br/>    cloud_vars                 = optional(map(string), {}) # Holds the cloud-specific overrides<br/>  })</pre> | n/a | yes |
+| ---- | ----------- | ---- | ------- | :------: |
+| <a name="input_cluster_id"></a> [cluster\_id](#input\_cluster\_id) | The ID of the autoglue cluster that this metadata is attached to. | `string` | n/a | yes |
+| <a name="input_cluster_metadata"></a> [cluster\_metadata](#input\_cluster\_metadata) | Structured cluster metadata. All fields are required unless noted:<br/>  - calico\_network\_calico\_cidr: CIDR block for the Calico pod network (e.g. "10.244.0.0/16").<br/>  - network\_service\_cidr:       CIDR block for Kubernetes services (e.g. "10.96.0.0/12").<br/>  - cloud:                      Target cloud provider. One of: "aws", "proxmox", "hetzner".<br/>  - cloud\_vars:                 Optional map of cloud-specific overrides. When cloud is "proxmox",<br/>                                "calico\_node\_address\_autodetection\_v4" is required. | <pre>object({<br/>    calico_network_calico_cidr = string<br/>    network_service_cidr       = string<br/>    cloud                      = string<br/>    cloud_vars                 = optional(map(string), {}) # Holds the cloud-specific overrides<br/>  })</pre> | n/a | yes |
 
 ## Outputs
 
