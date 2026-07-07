@@ -19,7 +19,11 @@
   "packages": {
     ".": {
       "release-type": "simple",
-      "package-name": "opentofu-module-autoglue-metadata"
+      "package-name": "opentofu-module-autoglue-metadata",
+      "extra-files": [
+        { "type": "generic", "path": "docs/.header.md" },
+        { "type": "generic", "path": "README.md" }
+      ]
     }
   }
 }
