@@ -13,7 +13,7 @@ module "cluster_metadata" {
     # Cloud-specific overrides. When cloud = "proxmox",
     # calico_node_address_autodetection_v4 is required.
     cloud_vars = {
-      calico_node_address_autodetection_v4 = "10.0.0.0/24"
+      calico_node_address_autodetection_v4 = "cidr=10.0.0.0/24"
     }
   }
 }
