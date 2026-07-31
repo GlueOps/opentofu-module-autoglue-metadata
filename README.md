@@ -2,7 +2,7 @@
 <!-- BEGIN_TF_DOCS -->
 ```hcl
 module "cluster_metadata" {
-  source     = "git::https://github.com/GlueOps/opentofu-module-autoglue-metadata.git?ref=v0.0.2" # x-release-please-version
+  source     = "git::https://github.com/GlueOps/opentofu-module-autoglue-metadata.git?ref=v0.0.3" # x-release-please-version
   cluster_id = autoglue_cluster.cluster.id
 
   cluster_metadata = {
